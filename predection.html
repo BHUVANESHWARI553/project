@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Page</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right,#4facfe,#00f2fe);
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+            margin:0;
+        }
+
+        .container{
+            background:#fff;
+            padding:30px;
+            width:400px;
+            border-radius:10px;
+            box-shadow:0 0 10px rgba(0,0,0,0.3);
+        }
+
+        h2{
+            text-align:center;
+            color:#333;
+        }
+
+        label{
+            font-weight:bold;
+        }
+
+        input,select{
+            width:100%;
+            padding:10px;
+            margin:8px 0 15px;
+            border:1px solid #ccc;
+            border-radius:5px;
+        }
+
+        button{
+            width:100%;
+            padding:12px;
+            background:#007BFF;
+            color:white;
+            border:none;
+            border-radius:5px;
+            font-size:16px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:#0056b3;
+        }
+
+        #result{
+            margin-top:20px;
+            text-align:center;
+            font-size:18px;
+            font-weight:bold;
+            color:green;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Online Shopping Prediction</h2>
+
+<label>Age</label>
+<input type="number" id="age">
+
+<label>Gender</label>
+<select id="gender">
+<option>Male</option>
+<option>Female</option>
+</select>
+
+<label>Monthly Income</label>
+<input type="number" id="income">
+
+<label>Product Price</label>
+<input type="number" id="price">
+
+<label>Shopping Time (Minutes)</label>
+<input type="number" id="time">
+
+<button onclick="predict()">Predict</button>
+
+<div id="result"></div>
+
+</div>
+
+<script>
+
+function predict(){
+
+let income=document.getElementById("income").value;
+let price=document.getElementById("price").value;
+
+if(price < income/2){
+document.getElementById("result").innerHTML="✅ Customer is Likely to Purchase";
+}
+else{
+document.getElementById("result").innerHTML="❌ Customer is Not Likely to Purchase";
+}
+
+}
+
+</script>
+
+</body>
+</html>
